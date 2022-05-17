@@ -20,7 +20,7 @@ git rm --cached foo.txt
 
 git rm -r --cached your_folder/
 
-5. 
+5. Loop e plot conjunto?
 
 # Resultado
 (p39geo) furtado@furtado:~/Documents/Professor/Christiane_pythonProjectFinal$ git rm -r --cached .idea/
