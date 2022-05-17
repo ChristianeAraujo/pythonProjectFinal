@@ -1,11 +1,18 @@
 # pythonProjectfinal
 Projeto de final do curso de Python oferecido pelo IPEA
 # objetivo
-Fazer o clip da unidades de saude por area programtica da cidade do Rio de Janeiro.
+Fazer o *clip* da unidades de saude por area programtica da cidade do Rio de Janeiro.
+Herdar os dados de áreas programáticas (polígono) e passar para uma base de pontos.
+
 Visando a otimização do trabalho com mapeamento territorial. 
 # código
 https://github.com/ChristianeAraujo/pythonProjectFinal/blob/master/venv/.gitignore
 
+
+# How to install
+conda create --name py39geo python=3.9 gdal fiona shapely geopandas
+### Setting PyCharm informar o caminho do .conda/envs/py39geo
+conda activate py39geo
 
 ## Sugestões
 1. Renomear folder com dados
@@ -14,7 +21,7 @@ https://github.com/ChristianeAraujo/pythonProjectFinal/blob/master/venv/.gitigno
 4. EXCLUIR folders .idea e venv do repositório
 
 **delete a file from tracking**
-
+# Comando para stop versioning file a directory
 git rm --cached foo.txt
 **a directory**
 
