@@ -19,17 +19,19 @@ def plot_boundaries(base, border, name='Hospitais da AP1.0'):
 
 
 def convert_crs(origin, destination):
+    # Recebe arquivos do tipo GEOPANDAS, utiliza a informação de CRS e compatibiliza os CRS entre os arquivos.
     return destination.to_crs(origin.crs)
 
 
 def main(path):
+    # Three examples of list comprehension
+    #
     files = [f for f in os.listdir(path) if f.endswith('shp')]
     aps = [read_shapes(os.path.join(path, ap)) for ap in files if ap.startswith('A')]
     hospitais = read_shapes(os.path.join(path, 'Unidades_de_Saude_Municipais.shp'))
     aps = [convert_crs(hospitais, ap) for ap in aps]
-    clipped = list()
-    for ap in aps:
-        clipped.append(gpd.clip(hospitais, ap))
+    clipped = [gpd.clip(hospitais, ap) for ap in aps]
+
     for i in range(len(clipped)):
         plot_boundaries(clipped[i], aps[i], f'Hospitais da {aps[i].COD_AP_SMS.loc[0]}')
     return clipped, aps
