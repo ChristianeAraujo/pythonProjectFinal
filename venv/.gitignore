@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt
+import geopandas
+
+
+AreaProgramatica = geopandas.read_file("AP10.shp")
+hospitais = geopandas.read_file("Unidades_de_Saude_Municipais.shp")
+
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8))
+AreaProgramatica.plot(ax=ax1)
+hospitais.plot(ax=ax2, color="purple")
+ax1.set_title("Area Programatica 1.0", fontsize=20)
+ax2.set_title("Unidades de Saude Municipais", fontsize=20)
+ax1.set_axis_off()
+ax2.set_axis_off()
+plt.show()
+
+
+hospitais_clipped = geopandas.clip(hospitais, AreaProgramatica)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+hospitais_clipped.plot(ax=ax, color="purple")
+AreaProgramatica.boundary.plot(ax=ax, color="green")
+ax.set_title("hospitais da AP1.0 Clipped", fontsize=20)
+ax.set_axis_off()
+plt.show()
+
